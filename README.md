@@ -1,5 +1,32 @@
+![eks](https://github.com/user-attachments/assets/9520e3a8-c969-4a4a-a3b8-e6c0979b1b4b)
+
 # EKS-demo
 
+Deploying a Containerized Application on EKS
+
+This time I will show you how to deploy a containerized application on eks.
+
+Adding AWS credentials to my local machine and also giving admin access to my user.
+
+Running Docker Desktop with Kubernetes configured on my instance.
+
+First I built a simple node.js server that is going to use the Express framework which when the contacts route is reached on port 3000 will return a hardcoded list of contacts.
+
+Also a Dockerfile is going to be created which has a base of the Alpine node. Copying the package.json file from the local source into the worker and then running npm install to pull the dependencies and then copying the rest of the source code into the worker indicates that it is exposing port 3000 and then running the server, going to the terminal, to build the image using the dockerfile, then starting an instance of the application to test it locally.
+
+In the terminal, the image will be pushed to Docker Hub with a tagged version of 1.0.
+
+In the template, the metadata name for the application server is set, an application server tag is given for the application, and the container specification has an application server name, since the image comes from the Docker Hub.
+
+A load balancer type service is added for deployment in eks and I also specified a port of 3000.
+
+Remember that all of this is done through the eks CTL CLI from weaveworks, which will allow us to interact with eks through a command line on our local machine.
+
+In this part, you will see how the stack is created and completed. Ok, with the creation of the full stack (cloudformation), the cube configuration will be updated by passing the name of the cluster that was created to a region and this will enable Cube CTL, and we will see how a stack was created for the demo workers on the node.
+
+
+
+"Comands CLI"
 Install your stay updates first:
 
 sudo apt update
