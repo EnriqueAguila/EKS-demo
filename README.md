@@ -62,8 +62,9 @@ sudo systemctl enable docker
 docker --version
 ```
 
-## Create a file called Dockerfile
+Create a file called Dockerfile.
 On your local machine, create a file called Dockerfile with the content you provided:
+
 ```
 FROM node:alpine
 WORKDIR /src
@@ -88,6 +89,7 @@ scp /ruta/local/Dockerfile usuario@ip-instancia-ubuntu:/ruta/destino/
 
 Change to the directory where the files are located
 Change to the directory where the copied files are located:
+
 ```
 cd /ruta/destino
 ```
@@ -97,16 +99,19 @@ docker build -t mi-aplicacion .
 ```
 
 Run the container:
+
 ```
 docker run -p 3000:3000 mi-aplicacion
 ```
 
-Configure eksctl 
+Configure eksctl
+
 ```
 brew tap weaveworks/tap
 brew install weaveworks/tap/eksctl
 eksctl version
 ```
+
 ```
 Crete a Cluster
  eksctl create cluster \
@@ -120,7 +125,8 @@ Crete a Cluster
  --nodes-max 4 \
  --managed
 ```
-Obtain a Cluster
+
+Obtain a Cluster:
 ```
 eksctl get cluster
 ```
