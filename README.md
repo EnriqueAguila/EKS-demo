@@ -34,18 +34,20 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-Install the necessary packages: Install the necessary packages for Docker:
+### Install the necessary packages: Install the necessary packages for Docker:
 
 ```
 sudo apt install -y ca-certificates curl gnupg lsb-release
 ```
 
-Update the package list: Update the package list to include the Docker repository:
+### Update the package list: Update the package list to include the Docker repository:
+
 ```
 sudo apt update
 ```
-```
-Install Docker:
+
+
+### Install Docker:
 ```
 sudo apt update
 ```
@@ -62,7 +64,7 @@ sudo systemctl enable docker
 docker --version
 ```
 
-Create a file called Dockerfile.
+### Create a file called Dockerfile.
 On your local machine, create a file called Dockerfile with the content you provided:
 
 ```
@@ -77,7 +79,7 @@ EXPOSE 3000
 CMD ["node", "server.js"]
 ```
 
-Create a package.json and server.js file
+### Create a package.json and server.js file
 Make sure you have a package.json and server.js file in a directory called src in the same location as the Dockerfile.
 Copy the files to the Ubuntu instance
 You can copy the files to the Ubuntu instance using SCP (Secure Copy) or SFTP:
@@ -87,7 +89,7 @@ scp -r /ruta/local/src usuario@ip- instancia-ubuntu:/ruta/destino/
 scp /ruta/local/Dockerfile usuario@ip-instancia-ubuntu:/ruta/destino/
 ```
 
-Change to the directory where the files are located
+### Change to the directory where the files are located
 Change to the directory where the copied files are located:
 
 ```
@@ -98,13 +100,13 @@ Create the Docker image from the Dockerfile:
 docker build -t mi-aplicacion .
 ```
 
-Run the container:
+### Run the container:
 
 ```
 docker run -p 3000:3000 mi-aplicacion
 ```
 
-Configure eksctl
+### Configure eksctl
 
 ```
 brew tap weaveworks/tap
@@ -126,12 +128,12 @@ Crete a Cluster
  --managed
 ```
 
-Obtain a Cluster:
+### Obtain a Cluster:
 ```
 eksctl get cluster
 ```
 
-Create a Deployment on the EKS Cluster:
+### Create a Deployment on the EKS Cluster:
 ```
 aws eks update-kubeconfig --name demo-cluster --region us-east-1
 ```
@@ -151,10 +153,10 @@ kubectl get nodes
 eksctl delete cluster --name demo-cluster
 ```
 
-Test Deployment:
+### Test Deployment:
 1. kubectl get all
 2. Copy LoadBalacner Endpoint
-```
+
 http://YOUR_LOAD_BALANCER_ENDPOINT:3000/contacts
 
 
