@@ -148,6 +148,7 @@ eksctl delete cluster --name demo-cluster
 Test Deployment:
 1. kubectl get all
 2. Copy LoadBalacner Endpoint
+```
 http://YOUR_LOAD_BALANCER_ENDPOINT:3000/contacts
 
 
